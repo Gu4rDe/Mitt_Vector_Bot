@@ -32,7 +32,7 @@ def test(message):
                      .format(
                          message.from_user,
                          bot.get_me()),
-                     reply_markup=markup
+                     reply_markup=markup,
                      )
 
 
