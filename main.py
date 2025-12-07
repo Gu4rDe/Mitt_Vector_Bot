@@ -28,8 +28,12 @@ def test(message):
 
     markup.add(item1, item2).add(item3, item4)
 
-    bot.send_message(message.chat.id, 'Привет, я - {1.first_name}, чем могу быть полезен?'.format(
-        message.from_user, bot.get_me()), reply_markup=markup)
+    bot.send_message(message.chat.id, 'Привет, я - {1.first_name}, чем могу быть полезен?'
+                     .format(
+                         message.from_user,
+                         bot.get_me()),
+                     reply_markup=markup
+                     )
 
 
 @bot.message_handler(content_types=['text'])
