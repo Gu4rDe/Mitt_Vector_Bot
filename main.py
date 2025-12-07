@@ -1,12 +1,11 @@
 import telebot
 from telebot import types
-from GoogleDiskDownload import download_file
 from dotenv import load_dotenv
 import os
 
 from consts import FILES_URL
 from create_qrcode import create_qr
-
+from googleDiskDownload import download_file
 
 load_dotenv("config.env")
 
