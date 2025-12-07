@@ -1,3 +1,6 @@
+# FILES_ID -> словарь FILES_ID должен содержать идентификаторы файлов Google Drive, которые необходимо скачать.
+# FILES_URL -> словарь FILES_URL должен содержать URL-адреса файлов Google Drive, соответствующие ID из FILES_ID.
+
 FILES_ID = {
     "презентация": "1O1e42ewsS7PpToHdAM3Q3FahKU7hKWSl",
     "паспорт": "",  # not used
