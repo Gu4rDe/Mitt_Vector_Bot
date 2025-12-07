@@ -1,9 +1,10 @@
-Библиотеки, обязательные к установке:
+# Обязательные библиотеки
+* pyTelegramBotAPI
+* python-dotenv
+* segno
+* googledrivedownloader
 
-telebot -> pip install pyTelegramBotAPI
-
-segno -> pip install segno
-
-googledrivedownloader -> pip install googledrivedownloader
-
-
+# Как их установить?
+```bash
+pip install название библиотеки
+```
