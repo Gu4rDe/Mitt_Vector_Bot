@@ -28,6 +28,7 @@ def test(message):
     item4 = types.KeyboardButton('отчёт')
 
     markup.add(item1, item2).add(item3, item4)
+
     bot.send_message(message.chat.id, 'Привет, я - {1.first_name}, чем могу быть полезен?'.format(
         message.from_user, bot.get_me()), reply_markup=markup)
 
@@ -36,10 +37,12 @@ def test(message):
 def buttons(message):
     if message.text == 'тест':
         qr_caption = f'QR-код для прохождения теста, также <a href="{FILES_URL[message.text]}">прямая ссылка</a> на него'
-        bot.send_photo(message.chat.id, create_qr(message.text),
-                       caption=qr_caption,
-                       parse_mode='HTML'
-                       )
+        bot.send_photo(
+            message.chat.id,
+            create_qr(message.text),
+            caption=qr_caption,
+            parse_mode='HTML'
+        )
 
     if message.text == 'презентация':
         qr_caption = f'QR-код для скачивания презентации, также <a href="{FILES_URL[message.text]}">прямая ссылка</a> на неё'
