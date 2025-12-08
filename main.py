@@ -25,8 +25,9 @@ def test(message):
     item2 = types.KeyboardButton('презентация')
     item3 = types.KeyboardButton('курс')
     item4 = types.KeyboardButton('отчёт')
+    item5 = types.KeyboardButton('О команде')
 
-    markup.add(item1, item2).add(item3, item4)
+    markup.add(item1, item2).add(item3, item4).add(item5)
 
     bot.send_message(message.chat.id, 'Привет, я - {1.first_name}, чем могу быть полезен?'
                      .format(
@@ -64,6 +65,19 @@ def buttons(message):
 
     if message.text == 'отчёт':
         bot.send_message(message.chat.id, 'тут пока ничего нет')
+
+    if message.text == 'О команде':
+        team = '''
+        • Губин Артём - капитан
+        • Исаков Руслан - исследователь
+        • Кулигин Александр - разработчик презентации
+        • Аббясов Владислав - разработчик накопителя тестовых заданий
+        • Белоусов Петр - разработчик дистанционного курсаразработчик дистанционного курса
+        • Пекарский Александр - разработчик чат-бота
+        • Носов Дмитрий - составитель отчёта и презентации
+        '''
+
+        bot.send_message(message.chat.id, team)
 
 
 bot.polling(none_stop=True)
