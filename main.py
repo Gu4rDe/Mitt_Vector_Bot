@@ -7,6 +7,7 @@ from consts import FILES_URL, TEAM_INFO
 from create_qrcode import create_qr
 from googleDiskDownload import download_file
 
+#Создайте config.env и добавьте переменную TOKEN
 load_dotenv("config.env")
 
 
