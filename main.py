@@ -3,7 +3,7 @@ from telebot import types
 from dotenv import load_dotenv
 import os
 
-from consts import FILES_URL
+from consts import FILES_URL, TEAM_INFO
 from create_qrcode import create_qr
 from googleDiskDownload import download_file
 
@@ -56,9 +56,14 @@ def buttons(message):
             caption=qr_caption,
             parse_mode='HTML'
         )
+        bot.send_message(
+            message.chat.id, "Подождите секунду, сейчас пришлю файл...")
 
-        bot.send_document(message.chat.id, download_file(
-            message.text), caption='Презентация')
+        bot.send_document(message.chat.id,
+                          download_file(
+                              message.text),
+                          caption='Презентация'
+                          )
 
     if message.text == 'курс':
         bot.send_message(message.chat.id, 'тут пока ничего нет')
@@ -67,17 +72,8 @@ def buttons(message):
         bot.send_message(message.chat.id, 'тут пока ничего нет')
 
     if message.text == 'О команде':
-        team = '''
-• Губин Артём - капитан
-• Исаков Руслан - исследователь
-• Кулигин Александр - разработчик презентации
-• Аббясов Владислав - разработчик тестовых заданий
-• Белоусов Петр - разработчик дистанционного курса
-• Пекарский Александр - разработчик чат-бота
-• Носов Дмитрий - составитель отчёта и презентации
-        '''
 
-        bot.send_message(message.chat.id, team)
+        bot.send_message(message.chat.id, TEAM_INFO)
 
 
 bot.polling(none_stop=True)
