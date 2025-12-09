@@ -2,7 +2,6 @@ import telebot
 from telebot import types
 from dotenv import load_dotenv
 import os
-from time import sleep
 
 from consts import FILES_URL, TEAM_INFO
 from create_qrcode import create_qr
@@ -61,7 +60,6 @@ def buttons(message):
         )
         bot.send_message(
             message.chat.id, "Подождите секунду, сейчас пришлю файл...")
-        sleep(1)
 
         bot.send_document(message.chat.id,
                           download_file(
