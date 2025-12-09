@@ -74,7 +74,6 @@ def buttons(message):
         bot.send_message(message.chat.id, 'тут пока ничего нет')
 
     if message.text == 'О команде':
-
         bot.send_message(message.chat.id, TEAM_INFO)
 
 
