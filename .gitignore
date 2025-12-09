@@ -1,4 +1,4 @@
 config.env
 __pycache__
-data/files/
-data/qrcodes/
+data/files/*
+data/qrcodes/*
