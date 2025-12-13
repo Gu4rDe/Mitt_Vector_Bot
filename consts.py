@@ -4,7 +4,6 @@
 FILES_ID = {
     "презентация": "1O1e42ewsS7PpToHdAM3Q3FahKU7hKWSl",
     "паспорт": "",  # not used
-    "курс": "",
     "отчет": "1t0hT5y-gy3fiGYKFpK5YKrGLS0XdmLac",  # not used
 }
 FILES_URL = {
