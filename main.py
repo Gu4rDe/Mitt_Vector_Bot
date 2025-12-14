@@ -68,7 +68,13 @@ def buttons(message):
                           )
 
     if message.text == 'курс':
-        bot.send_message(message.chat.id, 'тут пока ничего нет')
+        qr_caption = f'QR-код для прохождения курса, также <a href="{FILES_URL[message.text]}">прямая ссылка</a> на него'
+        bot.send_photo(
+            message.chat.id,
+            create_qr(message.text),
+            caption=qr_caption,
+            parse_mode='HTML'
+        )
 
     if message.text == 'отчёт':
         bot.send_message(message.chat.id, 'тут пока ничего нет')
