@@ -61,11 +61,12 @@ def buttons(message):
         bot.send_message(
             message.chat.id, "Подождите секунду, сейчас пришлю файл...")
 
-        bot.send_document(message.chat.id,
-                          download_file(
-                              message.text),
-                          caption='Презентация'
-                          )
+        bot.send_document(
+            message.chat.id,
+            download_file(
+                message.text),
+            caption='Презентация'
+        )
 
     if message.text == 'курс':
         qr_caption = f'QR-код для прохождения курса, также <a href="{FILES_URL[message.text]}">прямая ссылка</a> на него'
@@ -77,10 +78,16 @@ def buttons(message):
         )
 
     if message.text == 'отчёт':
-        bot.send_message(message.chat.id, 'тут пока ничего нет')
+        bot.send_message(
+            message.chat.id,
+            'тут пока ничего нет'
+        )
 
     if message.text == 'О команде':
-        bot.send_message(message.chat.id, TEAM_INFO)
+        bot.send_message(
+            message.chat.id,
+            TEAM_INFO
+        )
 
 
 bot.polling(none_stop=True)
