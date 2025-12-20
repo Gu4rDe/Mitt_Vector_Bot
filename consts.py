@@ -4,7 +4,6 @@
 FILES_ID = {
     "Презентация о проекте": "1O1e42ewsS7PpToHdAM3Q3FahKU7hKWSl",
     "Отчёт": "1t0hT5y-gy3fiGYKFpK5YKrGLS0XdmLac",
-    # Пример ID, замените на реальный
     "Презентация о работе команды": "14jUl0ojPUomku0LAfzRMf93OfQFCJY8j",
 }
 FILES_URL = {
