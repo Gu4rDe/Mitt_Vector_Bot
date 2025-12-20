@@ -85,7 +85,7 @@ def buttons(message):
                 message.text, 'pptx'),
             caption='Паспорт'
         )
-    
+
     if message.text == 'курс':
         qr_caption = f'QR-код для прохождения курса, также <a href="{FILES_URL[message.text]}">прямая ссылка</a> на него'
         bot.send_photo(
