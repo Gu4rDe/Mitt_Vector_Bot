@@ -64,7 +64,7 @@ def buttons(message):
         bot.send_document(
             message.chat.id,
             download_file(
-                message.text),
+                message.text, 'pptx'),
             caption='Презентация'
         )
 
@@ -91,7 +91,7 @@ def buttons(message):
         bot.send_document(
             message.chat.id,
             download_file(
-                message.text),
+                message.text, 'docx'),
             caption='Отчёт'
         )
 
