@@ -78,9 +78,21 @@ def buttons(message):
         )
 
     if message.text == 'отчёт':
-        bot.send_message(
+        qr_caption = f'QR-код для скачивания отчёта, также <a href="{FILES_URL[message.text]}">прямая ссылка</a> на него'
+        bot.send_photo(
             message.chat.id,
-            'тут пока ничего нет'
+            create_qr(message.text),
+            caption=qr_caption,
+            parse_mode='HTML'
+        )
+        bot.send_message(
+            message.chat.id, "Подождите секунду, сейчас пришлю файл...")
+
+        bot.send_document(
+            message.chat.id,
+            download_file(
+                message.text),
+            caption='Отчёт'
         )
 
     if message.text == 'О команде':
