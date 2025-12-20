@@ -5,7 +5,7 @@ import os
 
 from consts import FILES_URL, TEAM_INFO
 from create_qrcode import create_qr
-from googleDiskDownload import download_file
+from GoogleDiskDownload import download_file
 
 # Создайте config.env
 # добавьте переменную TOKEN
