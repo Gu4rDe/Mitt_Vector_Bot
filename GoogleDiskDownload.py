@@ -16,5 +16,3 @@ def download_file(file_name: str, extension: str):
             overwrite=True
         )
     return open(file_path, "rb")
-
-download_file("отчёт", "docx")  # for test purposes
