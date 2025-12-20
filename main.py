@@ -66,7 +66,7 @@ def buttons(message):
             message.chat.id,
             download_file(
                 message.text, 'pptx'),
-            caption='Презентация'
+            caption=f'{message.text}'
         )
     if message.text == 'Презентация о работе команды':
         qr_caption = f'QR-код для скачивания презентации, также <a href="{FILES_URL[message.text]}">прямая ссылка</a> на неё'
@@ -83,7 +83,7 @@ def buttons(message):
             message.chat.id,
             download_file(
                 message.text, 'pptx'),
-            caption='Паспорт'
+            caption=f'{message.text}'
         )
 
     if message.text == 'Курс':
@@ -110,7 +110,7 @@ def buttons(message):
             message.chat.id,
             download_file(
                 message.text, 'docx'),
-            caption='Отчёт'
+            caption=f'{message.text}'
         )
 
     if message.text == 'О команде':
