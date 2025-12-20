@@ -4,7 +4,7 @@
 FILES_ID = {
     "Презентация о проекте": "1O1e42ewsS7PpToHdAM3Q3FahKU7hKWSl",
     "Отчёт": "1t0hT5y-gy3fiGYKFpK5YKrGLS0XdmLac",
-    "Презентация работы команды": "1a2b3c4d5e6f7g8h9i0j",  # Пример ID, замените на реальный
+    "Презентация о работе команды": "1a2b3c4d5e6f7g8h9i0j",  # Пример ID, замените на реальный
 }
 FILES_URL = {
     "Презентация о проекте": "https://docs.google.com/presentation/d/1O1e42ewsS7PpToHdAM3Q3FahKU7hKWSl/edit?usp=drive_link&ouid=102675572501527148310&rtpof=true&sd=true",
