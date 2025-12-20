@@ -24,12 +24,13 @@ bot = telebot.TeleBot(BOT_TOKEN)
 def test(message):
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
     item1 = types.KeyboardButton('Тест')
-    item2 = types.KeyboardButton('Презентация')
-    item3 = types.KeyboardButton('Курс')
-    item4 = types.KeyboardButton('Отчёт')
-    item5 = types.KeyboardButton('О команде')
+    item2 = types.KeyboardButton('Презентация о проекте')
+    item3 = types.KeyboardButton('Паспорт')
+    item4 = types.KeyboardButton('Курс')
+    item5 = types.KeyboardButton('Отчёт')
+    item6 = types.KeyboardButton('О команде')
 
-    markup.add(item1, item2).add(item3, item4).add(item5)
+    markup.add(item1, item2).add(item3, item4).add(item5, item6)
 
     bot.send_message(message.chat.id, 'Привет, я - {1.first_name}, чем могу быть полезен?'
                      .format(
@@ -67,7 +68,24 @@ def buttons(message):
                 message.text, 'pptx'),
             caption='Презентация'
         )
+    if message.text == 'Паспорт':
+        qr_caption = f'QR-код для скачивания паспорта, также <a href="{FILES_URL[message.text]}">прямая ссылка</a> на него'
+        bot.send_photo(
+            message.chat.id,
+            create_qr(message.text),
+            caption=qr_caption,
+            parse_mode='HTML'
+        )
+        bot.send_message(
+            message.chat.id, "Подождите секунду, сейчас пришлю файл...")
 
+        bot.send_document(
+            message.chat.id,
+            download_file(
+                message.text, 'pptx'),
+            caption='Паспорт'
+        )
+    
     if message.text == 'курс':
         qr_caption = f'QR-код для прохождения курса, также <a href="{FILES_URL[message.text]}">прямая ссылка</a> на него'
         bot.send_photo(
