@@ -25,7 +25,7 @@ def test(message):
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
     item1 = types.KeyboardButton('Тест')
     item2 = types.KeyboardButton('Презентация о проекте')
-    item3 = types.KeyboardButton('Паспорт')
+    item3 = types.KeyboardButton('Презентация о работе команды')
     item4 = types.KeyboardButton('Курс')
     item5 = types.KeyboardButton('Отчёт')
     item6 = types.KeyboardButton('О команде')
@@ -68,8 +68,8 @@ def buttons(message):
                 message.text, 'pptx'),
             caption='Презентация'
         )
-    if message.text == 'Паспорт':
-        qr_caption = f'QR-код для скачивания паспорта, также <a href="{FILES_URL[message.text]}">прямая ссылка</a> на него'
+    if message.text == 'Презентация о работе команды':
+        qr_caption = f'QR-код для скачивания презентации, также <a href="{FILES_URL[message.text]}">прямая ссылка</a> на неё'
         bot.send_photo(
             message.chat.id,
             create_qr(message.text),
