@@ -51,7 +51,7 @@ def buttons(message):
             parse_mode='HTML'
         )
 
-    if message.text == 'Презентация':
+    if message.text == 'Презентация о проекте':
         qr_caption = f'QR-код для скачивания презентации, также <a href="{FILES_URL[message.text]}">прямая ссылка</a> на неё'
         bot.send_photo(
             message.chat.id,

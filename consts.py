@@ -2,12 +2,12 @@
 # FILES_URL -> словарь FILES_URL должен содержать URL-адреса файлов Google Drive, соответствующие ID из FILES_ID.
 
 FILES_ID = {
-    "Презентация": "1O1e42ewsS7PpToHdAM3Q3FahKU7hKWSl",
+    "Презентация о проекте": "1O1e42ewsS7PpToHdAM3Q3FahKU7hKWSl",
     "Паспорт": "1KrS9V_ANFrAK0WMHHcspbClaXpr6uJzE",
     "Отчёт": "1t0hT5y-gy3fiGYKFpK5YKrGLS0XdmLac",
 }
 FILES_URL = {
-    "Презентация": "https://docs.google.com/presentation/d/1O1e42ewsS7PpToHdAM3Q3FahKU7hKWSl/edit?usp=drive_link&ouid=102675572501527148310&rtpof=true&sd=true",
+    "Презентация о проекте": "https://docs.google.com/presentation/d/1O1e42ewsS7PpToHdAM3Q3FahKU7hKWSl/edit?usp=drive_link&ouid=102675572501527148310&rtpof=true&sd=true",
     "Отчёт": "https://docs.google.com/document/d/1t0hT5y-gy3fiGYKFpK5YKrGLS0XdmLac/edit?usp=sharing&ouid=102675572501527148310&rtpof=true&sd=true",
     "Тест": "https://docs.google.com/forms/d/e/1FAIpQLSf_Dof83g66gSKwULu-3fBtt5P1rB4OmSKZ8U4mQLauUFQEYg/viewform",
     "Паспорт": "https://docs.google.com/presentation/d/1KrS9V_ANFrAK0WMHHcspbClaXpr6uJzE/edit?usp=drive_link&ouid=102675572501527148310&rtpof=true&sd=true",
