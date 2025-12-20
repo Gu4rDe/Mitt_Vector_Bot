@@ -17,3 +17,4 @@ def download_file(file_name: str, extension: str):
         )
     return open(file_path, "rb")
 
+download_file("отчёт", "docx")  # for test purposes
