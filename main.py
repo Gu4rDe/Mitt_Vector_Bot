@@ -86,7 +86,7 @@ def buttons(message):
             caption='Паспорт'
         )
 
-    if message.text == 'курс':
+    if message.text == 'Курс':
         qr_caption = f'QR-код для прохождения курса, также <a href="{FILES_URL[message.text]}">прямая ссылка</a> на него'
         bot.send_photo(
             message.chat.id,
@@ -95,7 +95,7 @@ def buttons(message):
             parse_mode='HTML'
         )
 
-    if message.text == 'отчёт':
+    if message.text == 'Отчёт':
         qr_caption = f'QR-код для скачивания отчёта, также <a href="{FILES_URL[message.text]}">прямая ссылка</a> на него'
         bot.send_photo(
             message.chat.id,
