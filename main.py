@@ -23,10 +23,10 @@ bot = telebot.TeleBot(BOT_TOKEN)
 @bot.message_handler(commands=['start'])
 def test(message):
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
-    item1 = types.KeyboardButton('тест')
-    item2 = types.KeyboardButton('презентация')
-    item3 = types.KeyboardButton('курс')
-    item4 = types.KeyboardButton('отчёт')
+    item1 = types.KeyboardButton('Тест')
+    item2 = types.KeyboardButton('Презентация')
+    item3 = types.KeyboardButton('Курс')
+    item4 = types.KeyboardButton('Отчёт')
     item5 = types.KeyboardButton('О команде')
 
     markup.add(item1, item2).add(item3, item4).add(item5)
@@ -41,7 +41,7 @@ def test(message):
 
 @bot.message_handler(content_types=['text'])
 def buttons(message):
-    if message.text == 'тест':
+    if message.text == 'Тест':
         qr_caption = f'QR-код для прохождения теста, также <a href="{FILES_URL[message.text]}">прямая ссылка</a> на него'
         bot.send_photo(
             message.chat.id,
@@ -50,7 +50,7 @@ def buttons(message):
             parse_mode='HTML'
         )
 
-    if message.text == 'презентация':
+    if message.text == 'Презентация':
         qr_caption = f'QR-код для скачивания презентации, также <a href="{FILES_URL[message.text]}">прямая ссылка</a> на неё'
         bot.send_photo(
             message.chat.id,
