@@ -1,6 +1,8 @@
-import telebot
 from dotenv import load_dotenv
 import os
+import asyncio
+from telebot.async_telebot import AsyncTeleBot
+
 
 from .handlers import register_handlers
 
@@ -15,11 +17,12 @@ def main():
         raise ValueError("Переменная окружения TOKEN не установлена!")
 
 
-    bot = telebot.TeleBot(BOT_TOKEN)
+    bot = AsyncTeleBot(BOT_TOKEN)
+
     register_handlers(bot)
+    print("Бот запущен")
+    asyncio.run(bot.polling())
 
-
-    bot.polling(none_stop=True)
-
+    
 if __name__ == "__main__":
     main()
