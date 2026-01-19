@@ -21,9 +21,7 @@ def register_handlers(bot: AsyncTeleBot):
 
         await bot.send_message(
             message.chat.id,
-            "Привет, я - {1.first_name}, чем могу быть полезен?".format(
-                message.from_user, bot.get_me()
-            ),
+            f"Привет, {message.from_user.first_name}, чем могу быть полезен?",
             reply_markup=markup,
         )
 
