@@ -11,7 +11,7 @@ FILES_URL = {
     "Презентация о работе команды": "https://docs.google.com/presentation/d/18YA_4jp8XZDR7ZMC-3OR7XieibH5HwO1/edit?usp=drive_link&ouid=110813979345823164835&rtpof=true&sd=true",
     "Отчёт": "https://docs.google.com/document/d/1SVaCtODoUEcNMR0HKqypsdFlsX-WTwvi/edit?usp=sharing&ouid=102675572501527148310&rtpof=true&sd=true",
     "Тест": "https://docs.google.com/forms/d/e/1FAIpQLSf_Dof83g66gSKwULu-3fBtt5P1rB4OmSKZ8U4mQLauUFQEYg/viewform",
-    "Курс": "https://acc-13994.ispring.ru/app/preview/a1e75226-efd0-11f0-8033-5618834f0bde",
+    "Курс": "https://acc-13994.ispring.ru/app/preview/a1e75226-efd0-11f0-8033-5618834f0bde?s=project%2F3c155aaa-efc7-11f0-aec1-d61a7784a49b%2F3c160e07-efc7-11f0-aec1-d61a7784a49b",
 
 }
 TEAM_INFO = '''

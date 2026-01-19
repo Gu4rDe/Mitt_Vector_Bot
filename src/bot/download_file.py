@@ -1,5 +1,5 @@
 from googledrivedownloader import download_file_from_google_drive
-from consts import FILES_ID
+from .constants import FILES_ID
 
 
 def download_file(file_name: str, extension: str):

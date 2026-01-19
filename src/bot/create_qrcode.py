@@ -1,8 +1,8 @@
 import segno
-from consts import FILES_URL
+from .constants import FILES_URL
 
 
-def create_qr(file_name: str):
+def create_qrcode(file_name: str):
     file_path = f"data/qrcodes/{file_name}.png"
     try:
         return open(file_path, "rb")
