@@ -13,6 +13,6 @@ def download_file(file_name: str, extension: str):
             file_id=f'{FILES_ID[f"{file_name}"]}',
             dest_path=file_path,
             showsize=True,
-            overwrite=True
+            overwrite=True,
         )
     return open(file_path, "rb")
