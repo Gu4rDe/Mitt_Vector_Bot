@@ -6,18 +6,35 @@ from .create_qrcode import create_qrcode
 from .download_file import download_file
 
 
-def register_handlers(bot: AsyncTeleBot):
-    @bot.message_handler(commands=["start"])
-    async def test(message):
-        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
-        item1 = types.KeyboardButton("Тест")
-        item2 = types.KeyboardButton("Презентация о проекте")
-        item3 = types.KeyboardButton("Презентация о работе команды")
-        item4 = types.KeyboardButton("Курс")
-        item5 = types.KeyboardButton("Отчёт")
-        item6 = types.KeyboardButton("О команде")
+FILES_WITH_DOCS = {
+    "Презентация о проекте": "pptx",
+    "Презентация о работе команды": "pptx",
+    "Отчёт": "docx",
+}
 
-        markup.add(item1, item2).add(item3, item4).add(item5, item6)
+QR_TEXTS = {
+    "Тест": "прохождения теста",
+    "Курс": "прохождения курса",
+    "Презентация о проекте": "скачивания презентации",
+    "Презентация о работе команды": "скачивания презентации",
+    "Отчёт": "скачивания отчёта",
+}
+
+
+def register_handlers(bot: AsyncTeleBot):
+
+    @bot.message_handler(commands=["start"])
+    async def start(message):
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        buttons = [
+            "Тест",
+            "Презентация о проекте",
+            "Презентация о работе команды",
+            "Курс",
+            "Отчёт",
+            "О команде",
+        ]
+        markup.add(*map(types.KeyboardButton, buttons))
 
         await bot.send_message(
             message.chat.id,
@@ -27,76 +44,33 @@ def register_handlers(bot: AsyncTeleBot):
 
     @bot.message_handler(content_types=["text"])
     async def buttons(message):
-        if message.text == "Тест":
-            qr_caption = f'QR-код для прохождения теста, также <a href="{FILES_URL[message.text]}">прямая ссылка</a> на него'
-            await bot.send_photo(
-                message.chat.id,
-                create_qrcode(message.text),
-                caption=qr_caption,
-                parse_mode="HTML",
-            )
+        text = message.text
 
-        if message.text == "Презентация о проекте":
-            qr_caption = f'QR-код для скачивания презентации, также <a href="{FILES_URL[message.text]}">прямая ссылка</a> на неё'
-            await bot.send_photo(
-                message.chat.id,
-                create_qrcode(message.text),
-                caption=qr_caption,
-                parse_mode="HTML",
-            )
-            await bot.send_message(
-                message.chat.id, "Подождите секунду, сейчас пришлю файл..."
-            )
-
-            await bot.send_document(
-                message.chat.id,
-                download_file(message.text, "pptx"),
-                caption=f"{message.text}",
-            )
-        if message.text == "Презентация о работе команды":
-            qr_caption = f'QR-код для скачивания презентации, также <a href="{FILES_URL[message.text]}">прямая ссылка</a> на неё'
-            await bot.send_photo(
-                message.chat.id,
-                create_qrcode(message.text),
-                caption=qr_caption,
-                parse_mode="HTML",
-            )
-            await bot.send_message(
-                message.chat.id, "Подождите секунду, сейчас пришлю файл..."
-            )
-
-            await bot.send_document(
-                message.chat.id,
-                download_file(message.text, "pptx"),
-                caption=f"{message.text}",
-            )
-
-        if message.text == "Курс":
-            qr_caption = f'QR-код для прохождения курса, также <a href="{FILES_URL[message.text]}">прямая ссылка</a> на него'
-            await bot.send_photo(
-                message.chat.id,
-                create_qrcode(message.text),
-                caption=qr_caption,
-                parse_mode="HTML",
-            )
-
-        if message.text == "Отчёт":
-            qr_caption = f'QR-код для скачивания отчёта, также <a href="{FILES_URL[message.text]}">прямая ссылка</a> на него'
-            await bot.send_photo(
-                message.chat.id,
-                create_qrcode(message.text),
-                caption=qr_caption,
-                parse_mode="HTML",
-            )
-            await bot.send_message(
-                message.chat.id, "Подождите секунду, сейчас пришлю файл..."
-            )
-
-            await bot.send_document(
-                message.chat.id,
-                download_file(message.text, "docx"),
-                caption=f"{message.text}",
-            )
-
-        if message.text == "О команде":
+        if text == "О команде":
             await bot.send_message(message.chat.id, TEAM_INFO)
+            return
+
+        if text not in FILES_URL:
+            return
+
+        qr_caption = (
+            f"QR-код для {QR_TEXTS[text]}, также "
+            f'<a href="{FILES_URL[text]}">прямая ссылка</a>'
+        )
+
+        await bot.send_photo(
+            message.chat.id,
+            create_qrcode(text),
+            caption=qr_caption,
+            parse_mode="HTML",
+        )
+
+        if text in FILES_WITH_DOCS:
+            await bot.send_message(
+                message.chat.id, "Подождите секунду, сейчас пришлю файл..."
+            )
+            await bot.send_document(
+                message.chat.id,
+                download_file(text, FILES_WITH_DOCS[text]),
+                caption=text,
+            )
